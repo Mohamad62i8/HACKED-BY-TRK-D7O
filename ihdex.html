@@ -1,17 +1,19 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="Abo Da7m" t="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>discord.gg/EHZTXduFm2</title>
+
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: url('https://cdn.discordapp.com/attachments/1370838435832660160/1502322290006818866/2026-05-06_192946.png?ex=6a07dbe9&is=6a068a69&hm=3effc7fb7f864c3c1f874dc249b60711244fa2469520fbfd7bdde16277c81f06') no-repeat center center fixed;
+            background: url('https://cdn.discordapp.com/attachments/1370838435832660160/1502322290006818866/2026-05-06_192946.png')
+                        no-repeat center center fixed;
             background-size: cover;
             font-family: 'Courier New', Courier, monospace;
-            color: #000000;
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,52 +21,97 @@
             flex-direction: column;
             text-align: center;
         }
+
         .image-container img {
-            width: 750px; 
+            width: 750px;
+            max-width: 90%;
             height: auto;
-            border: 2px solid #000000; 
+            border: 2px solid #000;
             border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); 
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
         }
+
         .info {
             margin-top: 20px;
             font-size: 1.5em;
-            color: #ffffff; 
-            text-shadow: 0px 0px 8px #ffffff, 0px 0px 15px #ffffff, 0px 0px 25px #ffffff; 
-            letter-spacing: 4.5px; 
+            color: #ffffff;
+            text-shadow: 0 0 8px #ffffff, 0 0 15px #ffffff, 0 0 25px #ffffff;
+            letter-spacing: 2px;
             white-space: pre-wrap;
         }
+
         .text {
             margin-top: 20px;
-            font-size: 3em; 
-            color: #ffffff; 
-            text-shadow: 0px 0px 8px #ffffff, 0px 0px 15px #ffffff, 0px 0px 25px #ffffff; 
-            letter-spacing: 4.5px; 
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 0 0 8px #ffffff, 0 0 15px #ffffff, 0 0 25px #ffffff;
+            letter-spacing: 4px;
+        }
+
+        .discord {
+            margin-top: 10px;
+            font-size: 1.5em;
+            color: #ffffff;
+            text-shadow: 0 0 8px #ffffff, 0 0 15px #ffffff;
+        }
+
+        .discord a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .discord a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
+
+    <!-- الصورة -->
     <div class="image-container">
-        <img src="https://cdn.discordapp.com/attachments/1342232990792683625/1504729364921716826/CIA.png?ex=6a080bed&is=6a06ba6d&hm=6fb19ef645fe5d30cb73f5cf243d904f707373380371575bd6dde8aecbd5051b" alt="Discord Image">
+        <img src="https://cdn.discordapp.com/attachments/1342232990792683625/1504729364921716826/CIA.png"
+             alt="CIA Image">
     </div>
+
+    <!-- الصوت: يعمل تلقائيًا ويعيد التشغيل باستمرار -->
     <audio autoplay loop>
-        <source src="aa.mp3" type="audio/mpeg">
+        <source src="D-0 0-8 ..mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-     <div class="text">HACKED BY Agent X </div>
-   
-        
+
+    <!-- النص الرئيسي -->
+    <div class="text">HACKED BY Agent X</div>
+
+    <!-- رابط الديسكورد -->
+    <div class="discord">
+        GG : al2nflaty Abo Da7m :
+        <a href="https://discord.gg/2ATdV3h6" target="_blank">
+            https://discord.gg/2ATdV3h6
+        </a>
     </div>
-    <div class="text">GG : al2nflaty Abo Da7m  : https://discord.gg/2ATdV3h6</div>
+
+    <!-- معلومات الـ IP -->
+    <div id="ip-info" class="info"></div>
 
     <script>
-         fetch('https://ipinfo.io/json')
-        .then(response => response.json())
-        .then(data => {
-            delete data.readme;
-            const infoDiv = document.getElementById('ip-info');
-            infoDiv.textContent = JSON.stringify(data, null, 2);
+        // بعض المتصفحات تمنع autoplay حتى يتم استدعاء play() عبر JavaScript
+        const audio = document.querySelector("audio");
+        audio.play().catch(() => {
+            console.log("Autoplay was blocked by the browser.");
         });
+
+        fetch('https://ipinfo.io/json')
+            .then(response => response.json())
+            .then(data => {
+                delete data.readme;
+                document.getElementById('ip-info').textContent =
+                    JSON.stringify(data, null, 2);
+            })
+            .catch(() => {
+                document.getElementById('ip-info').textContent =
+                    'Failed to load IP information.';
+            });
     </script>
+
 </body>
 </html>
